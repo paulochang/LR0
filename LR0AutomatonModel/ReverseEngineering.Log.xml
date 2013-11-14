@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2013-11-12T12:59:20" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '951a379d-9c17-41d3-a140-8291a401c35d' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0' -  (Package)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Medium" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule' -  (Class)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::Equals' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::Equals::g' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::Equals::obj' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::Expression' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::GetHashCode' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::GetSymbol' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::GetSymbol::Position' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::GrammarRule' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::GrammarRule::theExpression' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::GrammarRule::theName' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::Name' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::GrammarRule::ToString' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Equals' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Equals::i' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Equals::obj' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::getCurrentSymbol' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::GetHashCode' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::isFinal' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Item' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Item::thePosition' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Item::theRule' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Position' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::Rule' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Item::ToString' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Medium" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program' -  (Class)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::AugmentGrammar' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::AugmentGrammar::theGrammar' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::Closure' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::Closure::theGrammar' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::Closure::theState' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::getNextStateId' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::Main' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::Main::args' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::Program' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Program::stateId' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Medium" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State' -  (Class)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::Add' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::Add::theItem' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::Equals' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::Equals::i' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::Equals::obj' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::GetForwardItems' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::GetHashCode' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::Id' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::itemSet' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::State' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::State::theItems' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::State::ToString' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Medium" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol' -  (Class)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::Equals' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::Equals::obj' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::Equals::s' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::GetHashCode' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::id' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::isTerminal' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::stringRepresentation' -  (Property)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::Symbol' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::Symbol::IsTerminal' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::Symbol::theId' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::Symbol::theStringRepresentation' -  (Parameter)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::LR0::Symbol::ToString' -  (Operation)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::System' -  (Package)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::System::Collections' -  (Package)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::System::Collections::Generic::List&lt;GrammarRule‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::System::Collections::Generic::List&lt;Item‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'LR0AutomatonModel::System::Object' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="High" Text="(4) type(s) fully reverse engineered." />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="High" Text="(5) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2013-11-12T12:59:28" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>
