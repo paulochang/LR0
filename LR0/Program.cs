@@ -8,6 +8,12 @@ namespace LR0
 {
     class Program
     {
+        public static int stateId = 1;
+
+        public static int getNextStateId()
+        {
+            return stateId++;
+        }
 
         public static List<GrammarRule> AugmentGrammar(List<GrammarRule> theGrammar)
         {
@@ -40,7 +46,7 @@ namespace LR0
             return new Symbol("úEndSymbol", "$");
         }
 
-       
+
         public static List<Item> getItemsById(string theId, List<GrammarRule> theGrammar)
         {
             List<Item> resultList = new List<Item>();
@@ -84,7 +90,7 @@ namespace LR0
             return Closure(resultState, theGrammar);
 
         }
-                
+
         public static DFA BuildLr0(List<GrammarRule> AugmentedGrammar, out HashSet<Tuple<dfaState, Symbol, Int32>> ReduceStates, out HashSet<input> Tokens)
         {
             Tokens = new HashSet<input>();
@@ -116,7 +122,7 @@ namespace LR0
                         if (!item.isFinal())
                         {
                             Symbol X = item.getCurrentSymbol();
-                            if (X.id == "úEndSymbol")
+                            if (X.id != "úEndSymbol")
                             {
                                 State J = Goto(I, X, AugmentedGrammar);
                                 int JIndex = -1;
@@ -137,6 +143,7 @@ namespace LR0
                                 int Iindex = T.IndexOf(I);
                                 string TransitionSymbol = X.id;
                                 Tokens.Add(TransitionSymbol);
+
 
                                 if (!E.transitionTable.ContainsKey(new KeyValuePair<int, string>(Iindex, TransitionSymbol)))
                                     E.transitionTable.Add(new KeyValuePair<int, string>(Iindex, TransitionSymbol), JIndex);
@@ -287,7 +294,7 @@ namespace LR0
 
             return Table;
         }
-        
+
         static void Main(string[] args)
         {
             List<GrammarRule> originalGrammar = new List<GrammarRule>();
@@ -319,6 +326,7 @@ namespace LR0
             GrammarRule Rule2 = new GrammarRule("E", new Symbol[] { new Symbol("T") });
             GrammarRule Rule3 = new GrammarRule("T", new Symbol[] { new Symbol("X", "x") });
 
+            originalGrammar.Add(Rule0);
             originalGrammar.Add(Rule1);
             originalGrammar.Add(Rule2);
             originalGrammar.Add(Rule3);
