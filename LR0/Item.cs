@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LR0
+﻿namespace LR0
 {
     class Item
     {
@@ -26,6 +20,16 @@ namespace LR0
             return null;
         }
 
+        public Symbol getNextSymbol()
+        {
+            if (Rule.Expression.Count-Position>1)
+            {
+                return Rule.GetSymbol(Position+1);
+            }
+
+            return null;
+        }
+
         public Item(GrammarRule theRule, int thePosition)
         {
             Rule = theRule;
@@ -41,7 +45,7 @@ namespace LR0
         public override string ToString()
         {
             string result = "";
-            result += Rule.Name;
+            result += Rule.RuleSymbol.id;
             result += "->";
             for (int i = 0; i < Rule.Expression.Count; i++)
             {

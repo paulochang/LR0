@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LR0
 {
     class GrammarRule
     {
-        public String Name;
+        public Symbol RuleSymbol;
         public List<Symbol> Expression;
 
         public GrammarRule(string theName, Symbol[] theExpression)
         {
-            Name = theName;
+            RuleSymbol = new Symbol(theName);
             Expression = new List<Symbol>(theExpression);
         }
         
@@ -25,7 +22,7 @@ namespace LR0
         public override string ToString()
         {
             string result = "";
-            result += Name;
+            result += RuleSymbol.id;
             result += "->";
             foreach (Symbol sym in Expression)
             {
@@ -45,7 +42,7 @@ namespace LR0
                 return false;
             }
 
-            if (Name != s.Name)
+            if (!RuleSymbol.Equals(s.RuleSymbol))
                 return false;
 
             if (Expression.Count != s.Expression.Count)
@@ -68,7 +65,7 @@ namespace LR0
                 return false;
             }
 
-            if (Name != g.Name)
+            if (!RuleSymbol.Equals(g.RuleSymbol))
                 return false;
 
             if (Expression.Count != g.Expression.Count)
@@ -91,7 +88,7 @@ namespace LR0
             {
                 result += sym.GetHashCode();
             }
-            return Name.GetHashCode() ^ result;
+            return RuleSymbol.GetHashCode() ^ result;
         }
     }
 }

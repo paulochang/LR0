@@ -42,9 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
     <Compile Include="DFA.cs" />
     <Compile Include="GrammarRule.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="LexerGenerationHelper.cs" />
+    <Compile Include="Lr0GenerationHelper.cs" />
     <Compile Include="ParsingTable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
