@@ -4,66 +4,15 @@ using System.Collections.Generic;
 using dfaState = System.Int32;
 using input = System.String;
 
+
 namespace LR0
 {
     class Program
     {
-        public static int stateId = 1;
 
-        public static int getNextStateId()
+        public static Lr0State Closure(Lr0State theState, List<GrammarRule> theGrammar)
         {
-            return stateId++;
-        }
-
-        public static List<GrammarRule> AugmentGrammar(List<GrammarRule> theGrammar)
-        {
-            List<GrammarRule> AugmentedGrammar = new List<GrammarRule>();
-            GrammarRule FirstRule = theGrammar[0];
-
-            if (!FirstRule.Expression[FirstRule.Expression.Count - 1].Equals(getEndSymbol()))
-            {
-                String ExtraRuleName = FirstRule.RuleSymbol.id + "'";
-                Symbol[] ExtraRuleExpression = new Symbol[] { new Symbol(FirstRule.RuleSymbol.id), getEndSymbol() };
-
-                GrammarRule ExtraRule = new GrammarRule(ExtraRuleName, ExtraRuleExpression);
-                AugmentedGrammar.Add(ExtraRule);
-            }
-            foreach (GrammarRule rule in theGrammar)
-            {
-                AugmentedGrammar.Add(rule);
-            }
-            return AugmentedGrammar;
-        }
-
-
-        public static Symbol getEpsylonSymbol()
-        {
-            return new Symbol(LexerGenerationHelper.getEquivalent('3'), "3");
-        }
-
-        public static Symbol getEndSymbol()
-        {
-            return new Symbol("úEndSymbol", "$");
-        }
-
-
-        public static List<Item> getItemsById(string theId, List<GrammarRule> theGrammar)
-        {
-            List<Item> resultList = new List<Item>();
-
-            foreach (GrammarRule rule in theGrammar)
-            {
-                if (rule.RuleSymbol.id == theId)
-                {
-                    resultList.Add(new Item(rule));
-                }
-            }
-
-            return resultList;
-        }
-        public static State Closure(State theState, List<GrammarRule> theGrammar)
-        {
-            State ResultState = new State(theState.itemSet);
+            Lr0State ResultState = new Lr0State(theState.itemSet);
             bool hasChanged = false;
             do
             {
@@ -72,7 +21,7 @@ namespace LR0
                 foreach (Item theItem in forwardItems)
                 {
                     Symbol currentSymbol = theItem.getCurrentSymbol();
-                    List<Item> theProductions = getItemsById(currentSymbol.id, theGrammar);
+                    List<Item> theProductions = Lr0GenerationHelper.getItemsById(currentSymbol.id, theGrammar);
                     foreach (var item in theProductions)
                     {
                         hasChanged = theState.Add(item) || hasChanged;
@@ -82,10 +31,10 @@ namespace LR0
             return ResultState;
         }
 
-        public static State Goto(State theState, Symbol inputSymbol, List<GrammarRule> theGrammar)
+        public static Lr0State Goto(Lr0State theState, Symbol inputSymbol, List<GrammarRule> theGrammar)
         {
             List<Item> generatedItems = theState.GetGotoItems(inputSymbol);
-            State resultState = new State(generatedItems);
+            Lr0State resultState = new Lr0State(generatedItems);
 
             return Closure(resultState, theGrammar);
 
@@ -97,10 +46,10 @@ namespace LR0
             ReduceStates = new HashSet<Tuple<dfaState, Symbol, Int32>>();
             DFA E = new DFA();
             E.start = 0;
-            List<State> T = new List<State>();
+            List<Lr0State> T = new List<Lr0State>();
 
             GrammarRule FirstProduction = AugmentedGrammar[0];
-            State InitialState = new State();
+            Lr0State InitialState = new Lr0State();
             InitialState.Add(new Item(FirstProduction));
 
             InitialState = Closure(InitialState, AugmentedGrammar);
@@ -110,12 +59,12 @@ namespace LR0
             do
             {
                 hasChanged = false;
-                List<State> tempState = new List<State>();
-                foreach (State s in T)
+                List<Lr0State> tempState = new List<Lr0State>();
+                foreach (Lr0State s in T)
                 {
                     tempState.Add(s);
                 }
-                foreach (State I in tempState)
+                foreach (Lr0State I in tempState)
                 {
                     foreach (Item item in I.itemSet)
                     {
@@ -124,7 +73,7 @@ namespace LR0
                             Symbol X = item.getCurrentSymbol();
                             if (X.id != "úEndSymbol")
                             {
-                                State J = Goto(I, X, AugmentedGrammar);
+                                Lr0State J = Goto(I, X, AugmentedGrammar);
                                 int JIndex = -1;
                                 if (T.Contains(J))
                                 {
@@ -167,7 +116,6 @@ namespace LR0
 
         private static void printGraph(DFA theAutomaton, System.IO.StreamWriter writer)
         {
-            //public SortedList<KeyValuePair<state, input>, state> transitionTable;
             foreach (KeyValuePair<KeyValuePair<dfaState, input>, dfaState> pair in theAutomaton.transitionTable)
             {
                 writer.Write(pair.Key.Key.ToString() + " -> " + pair.Value.ToString() + " [label=" + pair.Key.Value + "];");
@@ -189,13 +137,13 @@ namespace LR0
                             bool isEpsylon = true;
                             for (int j = i + 1; j < rule.Expression.Count; j++) // iterate through reamining members
                             { // check if they are all epsylon
-                                isEpsylon = isEpsylon && rule.Expression[j].Equals(getEpsylonSymbol());
+                                isEpsylon = isEpsylon && rule.Expression[j].Equals(Lr0GenerationHelper.getEpsylonSymbol());
                             }
                             if (!isEpsylon)
                             { // if rest is not epsylon
                                 List<Symbol> RemainingSymbols = rule.Expression.GetRange(i + 1, rule.Expression.Count - (i + 1));
                                 HashSet<Symbol> FirstSet = First(RemainingSymbols, theGrammar);
-                                FirstSet.Remove(getEpsylonSymbol());
+                                FirstSet.Remove(Lr0GenerationHelper.getEpsylonSymbol());
                                 result.UnionWith(FirstSet);
                             }
                             if (i == rule.Expression.Count - 1) // if it's the final production
@@ -206,7 +154,7 @@ namespace LR0
                             else
                             {
                                 List<Symbol> RemainingSymbols = rule.Expression.GetRange(i + 1, rule.Expression.Count - (i + 1));
-                                if (First(RemainingSymbols, theGrammar).Contains(getEpsylonSymbol()))
+                                if (First(RemainingSymbols, theGrammar).Contains(Lr0GenerationHelper.getEpsylonSymbol()))
                                 {
                                     if (!rule.RuleSymbol.Equals(B))
                                         result.UnionWith(Follow(rule.RuleSymbol, theGrammar));
@@ -227,12 +175,12 @@ namespace LR0
             do
             {
                 HashSet<Symbol> y1result = First(Ys[index], theGrammar);
-                containsEpsylon = y1result.Contains(getEpsylonSymbol());
-                y1result.Remove(getEpsylonSymbol());
+                containsEpsylon = y1result.Contains(Lr0GenerationHelper.getEpsylonSymbol());
+                y1result.Remove(Lr0GenerationHelper.getEpsylonSymbol());
                 result.UnionWith(y1result);
                 index++;
             } while (index < Ys.Count && containsEpsylon);
-            if (index == Ys.Count && containsEpsylon) result.Add(getEpsylonSymbol());
+            if (index == Ys.Count && containsEpsylon) result.Add(Lr0GenerationHelper.getEpsylonSymbol());
             return result;
         }
 
@@ -295,6 +243,54 @@ namespace LR0
             return Table;
         }
 
+        private static bool parse(List<input> theInputList, ParsingTable theParsingTable, List<GrammarRule> theGrammar)
+        {
+            theInputList.Add("úEndSymbol");
+            dfaState currentState = 0;
+            Stack<dfaState> helperStack = new Stack<dfaState>();
+            helperStack.Push(0);
+            input currentInput;
+            Action currentAction;
+            int currentPosition = 0;
+
+            while (currentPosition < theInputList.Count)
+            {
+                currentInput = theInputList[currentPosition];
+                currentState = helperStack.Peek();
+                if (theParsingTable.transitionTable.TryGetValue(new KeyValuePair<dfaState, input>(currentState, currentInput), out currentAction))
+                {
+                    switch (currentAction.type)
+                    {
+                        case ActionType.Shift:
+                            currentPosition++;
+                            helperStack.Push(currentAction.destiny);
+                            break;
+                        case ActionType.Reduce:
+                            GrammarRule currentRule = theGrammar[currentAction.destiny];
+                            for (int i = 0; i < currentRule.Expression.Count; i++)
+                            {
+                                helperStack.Pop();
+                            }
+                            input X = currentRule.RuleSymbol.id;
+                            Action gotoAction;
+                            dfaState peekedState = helperStack.Peek();
+                            if (theParsingTable.transitionTable.TryGetValue(new KeyValuePair<dfaState, input>(peekedState, X), out gotoAction))
+                            {
+                                helperStack.Push(gotoAction.destiny);
+                            }
+                            else
+                                return false;
+                            break;
+                        case ActionType.Accept:
+                            return true;    
+                        default:
+                            return false;
+                    }
+                }
+            }
+            return false;
+        }
+
         static void Main(string[] args)
         {
             List<GrammarRule> originalGrammar = new List<GrammarRule>();
@@ -308,20 +304,20 @@ namespace LR0
             //GrammarRule Rule2 = new GrammarRule("A", new Symbol[] { new Symbol("a", "a"), new Symbol("A"), new Symbol("d", "d") });
             //GrammarRule Rule3 = new GrammarRule("A", new Symbol[] { new Symbol("B"), new Symbol("C") });
             //GrammarRule Rule4 = new GrammarRule("B", new Symbol[] { new Symbol("b", "b"), new Symbol("B"), new Symbol("c", "c") });
-            //GrammarRule Rule5 = new GrammarRule("B", new Symbol[] { Lr0GenerationHelper.getEpsylonSymbol() });
+            //GrammarRule Rule5 = new GrammarRule("B", new Symbol[] { Lr0GenerationHelper.Lr0GenerationHelper.getEpsylonSymbol() });
             //GrammarRule Rule6 = new GrammarRule("C", new Symbol[] { new Symbol("a", "a"), new Symbol("c", "c"), new Symbol("C") });
             //GrammarRule Rule7 = new GrammarRule("C", new Symbol[] { new Symbol("a", "a"), new Symbol("d", "d") });
 
             //GrammarRule Rule1 = new GrammarRule("E", new Symbol[] { new Symbol("T"), new Symbol("Ex") });
             //GrammarRule Rule2 = new GrammarRule("Ex", new Symbol[] { new Symbol("+", "+"), new Symbol("T"), new Symbol("Ex") });
-            //GrammarRule Rule3 = new GrammarRule("Ex", new Symbol[] { Lr0GenerationHelper.getEpsylonSymbol() });
+            //GrammarRule Rule3 = new GrammarRule("Ex", new Symbol[] { Lr0GenerationHelper.Lr0GenerationHelper.getEpsylonSymbol() });
             //GrammarRule Rule4 = new GrammarRule("T", new Symbol[] { new Symbol("F"), new Symbol("Tx") });
             //GrammarRule Rule5 = new GrammarRule("Tx", new Symbol[] { new Symbol("*", "*"), new Symbol("F"), new Symbol("Tx") });
-            //GrammarRule Rule6 = new GrammarRule("Tx", new Symbol[] { Lr0GenerationHelper.getEpsylonSymbol() });
+            //GrammarRule Rule6 = new GrammarRule("Tx", new Symbol[] { Lr0GenerationHelper.Lr0GenerationHelper.getEpsylonSymbol() });
             //GrammarRule Rule7 = new GrammarRule("F", new Symbol[] { new Symbol("(", "("), new Symbol("E"), new Symbol(")", ")") });
             //GrammarRule Rule8 = new GrammarRule("F", new Symbol[] { new Symbol("id", "id") });
 
-            GrammarRule Rule0 = new GrammarRule("S", new Symbol[] { new Symbol("E"), getEndSymbol() });
+            GrammarRule Rule0 = new GrammarRule("S", new Symbol[] { new Symbol("E"), Lr0GenerationHelper.getEndSymbol() });
             GrammarRule Rule1 = new GrammarRule("E", new Symbol[] { new Symbol("T"), new Symbol("plus", "+"), new Symbol("E") });
             GrammarRule Rule2 = new GrammarRule("E", new Symbol[] { new Symbol("T") });
             GrammarRule Rule3 = new GrammarRule("T", new Symbol[] { new Symbol("X", "x") });
@@ -336,7 +332,7 @@ namespace LR0
             //originalGrammar.Add(Rule7);
             //originalGrammar.Add(Rule8);
 
-            Grammar = AugmentGrammar(originalGrammar);
+            Grammar = Lr0GenerationHelper.AugmentGrammar(originalGrammar);
 
             HashSet<input> nonTerminals = new HashSet<input>();
             HashSet<Symbol> terminals = new HashSet<Symbol>();
@@ -390,6 +386,8 @@ namespace LR0
                 theStates.Add(key.Key);
             }
 
+            
+#if (DEBUG)
             foreach (GrammarRule rule in originalGrammar)
             {
                 Console.WriteLine(rule);
@@ -477,8 +475,9 @@ namespace LR0
             }
             Console.WriteLine();
             Console.ReadLine();
-
-#if (DEBUG)
+            List<input> theInput = new List<input>(new input[] { "X", "plus", "X", "plus", "X"});
+            Console.WriteLine(parse(theInput, theParsingTable, Grammar));
+            Console.ReadLine();
             using (System.IO.StreamWriter writer =
                 new System.IO.StreamWriter("grafo.dot"))
             {

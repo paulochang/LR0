@@ -24,14 +24,7 @@ namespace LR0
             final = new HashSet<state>();
             transitionTable = new SortedList<KeyValuePair<state, input>, Action>(new transitionComparer());
         }
-
-        //public void parse(List<input> theInput)
-        //{
-        //    theInput.Add("úEndSymbol"); //add ending signal
-        //    state actualState = 0;
-        //    Stack<input> theParserStack = new Stack<input>();
-        //}
-
+        
         //public bool simulate(List<string> @in)
         //{
         //    state currentState = start;

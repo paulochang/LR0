@@ -2,21 +2,21 @@
 
 namespace LR0
 {
-    class State
+    class Lr0State
     {
         public List<Item> itemSet;
 
-        public State()
+        public Lr0State()
         {
             itemSet = new List<Item>();
         }
 
-        public State(Item[] theItems)
+        public Lr0State(Item[] theItems)
         {
             itemSet = new List<Item>(theItems);
         }
 
-        public State(List<Item> theItems)
+        public Lr0State(List<Item> theItems)
         {
             itemSet = theItems;
         }
@@ -46,7 +46,7 @@ namespace LR0
             if (obj == null)
                 return false;
 
-            State i = obj as State;
+            Lr0State i = obj as Lr0State;
             if ((System.Object)i == null)
             {
                 return false;
@@ -65,7 +65,7 @@ namespace LR0
             return result;
         }
 
-        public bool Equals(State i)
+        public bool Equals(Lr0State i)
         {
             if ((System.Object)i == null)
             {
